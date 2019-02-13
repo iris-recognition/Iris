@@ -1,0 +1,21 @@
+REQUIREMENTS:
+
+(a) 12V Electronic door lock assemlby solenoid low power consumption.
+(b) Infrared or CCD Camera
+(c) Arduino uno R3 + cable for  Arduino uno
+(d) ESP8266 WiFi Module (or) HC05 / HC06
+(e) Windows 10 (preferred)
+(f) Batteries
+
+
+
+ANALYSIS:
+
+The value of biometrics is realized by security systems in order to verify or to identify the users.
+
+In the restricted areas identify the person who is entering into the restricted areas like
+R& D, Bank Lockers etc. is needed to identify and permit the person.
+
+If this process is performed manually by security guards, it will take too much time to identify each person and thus errors may occur in this process.
+
+To avoid this time consumption and errors we are proposing a security system using iris as biometrics which will recognize the person based on his or her iris pattern and this security system used to control the entry in the restricted areas.
