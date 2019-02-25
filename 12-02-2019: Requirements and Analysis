@@ -1,11 +1,10 @@
 REQUIREMENTS:
 
-(a) 12V Electronic door lock assemlby solenoid low power consumption.
-(b) Infrared or CCD Camera
-(c) Arduino uno R3 + cable for  Arduino uno
-(d) ESP8266 WiFi Module (or) HC05 / HC06
-(e) Windows 10 (preferred)
-(f) Batteries
+(a) Raspberry Pi 3
+(b) Python
+(c) OpenCV
+(d) Electromagnetic Door Lock
+(e) GPIO coding
 
 
 
