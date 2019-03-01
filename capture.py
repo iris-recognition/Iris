@@ -1,27 +1,28 @@
-import numpy as np
-import cv2
+mport cv2
 
-cap = cv2.VideoCapture(0)
+cam = cv2.VideoCapture(0)
 
-# Define the codec and create VideoWriter object
-fourcc = cv2.VideoWriter_fourcc(*'XVID')
-out = cv2.VideoWriter('output.avi',fourcc, 20.0, (640,480))
+cv2.namedWindow("Frame")
 
-while(cap.isOpened()):
-    ret, frame = cap.read()
-    if ret==True:
-        #frame = cv2.flip(frame,0)
+img_counter = 0
 
-        # write the flipped frame
-        out.write(frame)
-
-        cv2.imshow('frame',frame)
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
-    else:
+while True:
+    ret, frame = cam.read()
+    cv2.imshow("Frame", frame)
+    if not ret:
         break
+    k = cv2.waitKey(1)
 
-# Release everything if job is finished
-cap.release()
-out.release()
+    if k%256 == 27:
+        print("Escape hit, closing...")
+        break
+    elif k%256 == 32:
+        
+        img_name = "opencv_frame_{}.png".format(img_counter)
+        cv2.imwrite(img_name, frame)
+        print("{} written!".format(img_name))
+        img_counter += 1
+
+cam.release()
+
 cv2.destroyAllWindows()
