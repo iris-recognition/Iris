@@ -47,7 +47,6 @@ def matching(template_extr, mask_extr, temp_dir, threshold=0.38):
 		return [filenames[idx] for idx in ind_sort]
 
 
-#------------------------------------------------------------------------------
 def calHammingDist(template1, mask1, template2, mask2):
 	
 	# Initialize
@@ -77,7 +76,6 @@ def calHammingDist(template1, mask1, template2, mask2):
 	return hd
 
 
-#------------------------------------------------------------------------------
 def shiftbits(template, noshifts):
 	
 	# Initialize
@@ -106,7 +104,6 @@ def shiftbits(template, noshifts):
 	return templatenew
 
 
-#------------------------------------------------------------------------------
 def matchingPool(file_temp_name, template_extr, mask_extr, temp_dir):
 	
 	# Load each account
