@@ -1,6 +1,3 @@
-##-----------------------------------------------------------------------------
-##  Import
-##-----------------------------------------------------------------------------
 import numpy as np
 from os import listdir
 from fnmatch import filter
@@ -12,23 +9,8 @@ import warnings
 warnings.filterwarnings("ignore")
 
 
-##-----------------------------------------------------------------------------
-##  Function
-##-----------------------------------------------------------------------------
 def matching(template_extr, mask_extr, temp_dir, threshold=0.38):
-	"""
-	Description:
-		Match the extracted template with database.
-
-	Input:
-		template_extr	- Extracted template.
-		mask_extr		- Extracted mask.
-		threshold		- Threshold of distance.
-		temp_dir		- Directory contains templates.
-
-	Output:
-		List of strings of matched files, 0 if not, -1 if no registered sample.
-	"""
+	
 	# Get the number of accounts in the database
 	n_files = len(filter(listdir(temp_dir), '*.mat'))
 	if n_files == 0:
@@ -67,19 +49,7 @@ def matching(template_extr, mask_extr, temp_dir, threshold=0.38):
 
 #------------------------------------------------------------------------------
 def calHammingDist(template1, mask1, template2, mask2):
-	"""
-	Description:
-		Calculate the Hamming distance between two iris templates.
-
-	Input:
-		template1	- The first template.
-		mask1		- The first noise mask.
-		template2	- The second template.
-		mask2		- The second noise mask.
-
-	Output:
-		hd			- The Hamming distance as a ratio.
-	"""
+	
 	# Initialize
 	hd = np.nan
 
@@ -109,18 +79,7 @@ def calHammingDist(template1, mask1, template2, mask2):
 
 #------------------------------------------------------------------------------
 def shiftbits(template, noshifts):
-	"""
-	Description:
-		Shift the bit-wise iris patterns.
-
-	Input:
-		template	- The template to be shifted.
-		noshifts	- The number of shift operators, positive for right
-					  direction and negative for left direction.
-
-	Output:
-		templatenew	- The shifted template.
-	"""
+	
 	# Initialize
 	templatenew = np.zeros(template.shape)
 	width = template.shape[1]
@@ -149,18 +108,7 @@ def shiftbits(template, noshifts):
 
 #------------------------------------------------------------------------------
 def matchingPool(file_temp_name, template_extr, mask_extr, temp_dir):
-	"""
-	Description:
-		Perform matching session within a Pool of parallel computation
-
-	Input:
-		file_temp_name	- File name of the examining template
-		template_extr	- Extracted template
-		mask_extr		- Extracted mask of noise
-
-	Output:
-		hm_dist			- Hamming distance
-	"""
+	
 	# Load each account
 	data_template = sio.loadmat('%s%s'% (temp_dir, file_temp_name))
 	template = data_template['template']
